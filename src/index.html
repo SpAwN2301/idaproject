@@ -24,32 +24,32 @@
                     <div class="input__wrapper">
                         <label>
                             <div class="input__title">Наименование товара </div>
-                            <input class="input" placeholder="Введите наименование товара" v-model="productName" type='text'>
+                            <input name="name" class="input" placeholder="Введите наименование товара" type='text'>
                             <p class="input__err">Поле является обязательным</p>
                         </label>
                     </div>
                     <div class="input__wrapper">
                         <label>
                             <div class="input__title">Описание товара </div>
-                            <textarea class="input input_big" placeholder="Введите описание товара" class="form__description" v-model="productDesc"></textarea>
+                            <textarea name="descrip" class="input input_big" placeholder="Введите описание товара" class="form__description"></textarea>
                         </label>
                     </div>
                     <div class="input__wrapper">
                         <label>
                             <div class="input__title">Ссылка на изображение товара </div>
-                            <input class="input" placeholder="Введите ссылку" v-model="productLink" type='text'>
+                            <input name="link" class="input" placeholder="Введите ссылку" type='text'>
                             <p class="input__err">Поле является обязательным</p>
                         </label>
                     </div>  
                     <div class="input__wrapper">
                         <label>
                             <div class="input__title">Цена товара </div>
-                            <input class="input" type="number" placeholder="Введите цену" v-model="productPrice" >
+                            <input name="price" class="input" type="number" placeholder="Введите цену">
                             <p class="input__err">Поле является обязательным</p>
                         </label>
                     </div>
 
-                   <button class="button">Добавить товар</button>
+                   <button id="add-item" class="form__button">Добавить товар</button>
                 </form>
             </div>
 

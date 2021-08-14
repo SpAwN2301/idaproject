@@ -37,12 +37,17 @@ const items = [
     },
 ];
 
+const deleteItemBtn = [];
+
 const itemsContainer = document.getElementById('items');
-const deleteItems = itemsContainer.getElementsByClassName('item__delete');
+const form = document.getElementsByClassName('form')[0];
+const addItemBtn = document.getElementById('add-item');
 
 itemsRender();
 
 function itemsRender() {
+    itemsContainer.innerHTML = '';
+    deleteItemBtn.length = 0;
     items.forEach((item) => {
         itemsContainer.innerHTML += `
             <div class="item animate-fadeIn">
@@ -58,4 +63,27 @@ function itemsRender() {
             </div>
         `
     })
+    deleteItemBtn.push(...document.getElementsByClassName('item__delete'));
+    for(let i = 0; i < deleteItemBtn.length; i++){
+        deleteItemBtn[i].addEventListener("click", () => {
+            console.log(i)
+            items.splice(i, 1)
+            itemsRender();
+        })
+    }
 }
+
+form.addEventListener("click", (e) => {
+    e.preventDefault()
+})
+
+addItemBtn.addEventListener("click", (e) => {
+    const itemName = document.querySelector('.form [name="name"]').value
+    const itemDescrip = document.querySelector('.form [name="descrip"]').value
+    const itemLink = document.querySelector('.form [name="link"]').value
+    const itemPrice = document.querySelector('.form [name="price"]').value
+
+    items.push({image: itemLink, title: itemName, about: itemDescrip, price: itemPrice})
+    itemsRender()
+})
+

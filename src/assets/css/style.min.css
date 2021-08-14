@@ -96,7 +96,7 @@ section {
   display: none;
 }
 
-.form .button {
+.form__button {
   cursor: pointer;
   margin: 24px auto 0 auto;
   width: 284px;
