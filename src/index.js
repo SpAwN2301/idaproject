@@ -78,12 +78,30 @@ form.addEventListener("click", (e) => {
 })
 
 addItemBtn.addEventListener("click", (e) => {
+    const errMessage = document.getElementsByClassName('input__err')
+    for(let i = 0; i < errMessage.length; i++) errMessage[i].style.display = "none"
+    
     const itemName = document.querySelector('.form [name="name"]').value
     const itemDescrip = document.querySelector('.form [name="descrip"]').value
     const itemLink = document.querySelector('.form [name="link"]').value
     const itemPrice = document.querySelector('.form [name="price"]').value
 
-    items.push({image: itemLink, title: itemName, about: itemDescrip, price: itemPrice})
-    itemsRender()
+    if(itemName === '' || itemLink === '' || itemPrice === ''){
+        console.log('error')
+        const errMessage = document.getElementsByClassName('input__err')
+
+        itemName === '' ? errMessage[0].style.display = "block" : null;
+        itemLink === '' ? errMessage[1].style.display = "block" : null;
+        itemPrice === '' ? errMessage[2].style.display = "block" : null;
+
+    }else{
+        items.push({image: itemLink, title: itemName, about: itemDescrip, price: itemPrice})
+        itemsRender()
+        itemName = '';
+        itemDescrip = '';
+        itemLink = '';
+        itemPrice = '';
+    }
+
 })
 

@@ -83,7 +83,7 @@ section {
   color: #49485E;
 }
 
-.form .input__title::after {
+.form .input__title_required::after {
   content: '';
   display: block;
   height: 4px;
@@ -94,6 +94,8 @@ section {
 
 .form .input__err {
   display: none;
+  color: #FF8484;
+  font-size: 8px;
 }
 
 .form__button {
